@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+    private static HashMap<Integer, String> events = new HashMap<Integer, String>();
 
     @GetMapping
     public String displayAllEvents(Model model) {
@@ -34,7 +35,7 @@ public class EventController {
     //lives at /events/create
     @PostMapping("create")
     public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(eventName);
+        events.put(1, eventName);
         return "redirect:";
     }
 
